@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 
 namespace WebApplication1.Models
 {
-    public class Product
+    public class Todo
     {
+        public int Id { get; set; }
+        public DateTime CreatedAt { get; set; }
         public string Name { get; set; }
-        public double Price { get; set; }
-        public string Vendor { get; set; }
+        public bool IsComplete { get; set; }
+        public int UserId { get; set; }
     }
 }
