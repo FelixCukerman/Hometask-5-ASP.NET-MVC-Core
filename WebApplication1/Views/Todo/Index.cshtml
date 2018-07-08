@@ -1,0 +1,33 @@
+﻿@model List<WebApplication1.Models.Todo>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h1 class="text-center">Our todos</h1>
+</div>
+
+<br />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"><mark>UserID</mark></div>
+        <div class="col-md-2"><mark>Id</mark></div>
+        <div class="col-md-2"><mark>Name</mark></div>
+        <div class="col-md-2"><mark>Is completed</mark></div>
+        <div class="col-md-2"><mark>Created at</mark></div>
+
+    </div>
+    @foreach (var todo in Model)
+    {
+        <hr />
+        <div class="row">
+            <div class="col-md-2"><p class="text-left">@todo.UserId</p></div>
+            <div class="col-md-2"><p class="text-left">@todo.Id</p></div>
+            <div class="col-md-2"><p class="text-left">@Html.ActionLink(todo.Name, "TodoID", "Todo", new { id = todo.Id })</p></div>
+            <div class="col-md-2"><p class="text-left">@todo.IsComplete</p></div>
+            <div class="col-md-2"><p class="text-left">@todo.CreatedAt</p></div>
+        </div>
+    }
+</div>

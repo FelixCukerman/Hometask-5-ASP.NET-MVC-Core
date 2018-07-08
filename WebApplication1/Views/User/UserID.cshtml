@@ -33,7 +33,28 @@
                 {
                     foreach (var post in Model.Posts)
                     {
-                <pre style="width: 85%; margin-left: 8%; margin-top: 3%">@Html.ActionLink(post.Title, "PostID", "Post", new { id = post.Id })</pre>
+                        <pre style="width: 85%; margin-left: 8%; margin-top: 3%">@Html.ActionLink(post.Title, "PostID", "Post", new { id = post.Id })</pre>
+                    }
+                }
+                else
+                {
+                    <pre style="width: 85%; margin-left: 8%; margin-top: 3%">User has not added any posts</pre>
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-7" style="background-color: #CFD8DC; min-height: 666px; margin-left: 2%">
+            <div class="row">
+                <h2 class="text-center"><mark>User tasks</mark></h2>
+                @if (Model.Todos.Count != 0)
+                {
+                    foreach (var todo in Model.Todos)
+                    {
+                        <pre style="width: 85%; margin-left: 8%; margin-top: 3%">@Html.ActionLink(todo.Name, "TodoID", "Todo", new { id = todo.Id })</pre>
                     }
                 }
                 else

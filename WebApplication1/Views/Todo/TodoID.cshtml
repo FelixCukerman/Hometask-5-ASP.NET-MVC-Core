@@ -1,0 +1,22 @@
+﻿@model WebApplication1.Models.Todo
+@{
+    ViewData["Title"] = "TodoID";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">@Model.Name</h2>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <pre>
+Task id         @Model.Id
+User id         @Model.UserId
+Name            @Model.Name
+Is complete     @Model.IsComplete
+Created at      @Model.CreatedAt
+            </pre>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>

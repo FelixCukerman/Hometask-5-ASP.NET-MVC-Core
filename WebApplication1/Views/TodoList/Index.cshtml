@@ -24,7 +24,7 @@
         {
             <tr>
                 <td>@item.Id</td>
-                <td>@item.Name</td>
+                <td>@Html.ActionLink(item.Name, "TodoID", "Todo", new { id = item.Id })</td>
             </tr>
         }
     </table>
