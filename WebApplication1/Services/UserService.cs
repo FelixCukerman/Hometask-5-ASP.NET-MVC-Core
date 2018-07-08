@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -20,8 +21,8 @@ namespace WebApplication1.Services
                 var json = responseContent.ReadAsStringAsync().Result;
 
                 users = JsonConvert.DeserializeObject<List<User>>(json);
-                var posts = PostService.GetPosts();
-                var todos = TodoService.GetTodos();
+                var posts = new PostService().GetPosts();
+                var todos = new TodoService().GetTodos();
 
                 foreach (var user in users)
                 {
@@ -56,6 +57,11 @@ namespace WebApplication1.Services
                 return users;
             else
                 return new List<User> { new User { Id = -1, Avatar = "null", Name = "null", Email = "null", CreatedAt = DateTime.MinValue, Posts = null, Todos = null } };
+        }
+
+        public User GetUserById(int id)
+        {
+            return users.Where(x => x.Id == id).FirstOrDefault();
         }
     }
 }

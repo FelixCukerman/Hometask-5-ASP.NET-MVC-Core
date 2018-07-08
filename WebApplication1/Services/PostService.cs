@@ -42,7 +42,7 @@ namespace WebApplication1.Services
                 throw new Exception("Bad request!");
             }
         }
-        public static List<Post> GetPosts()
+        public List<Post> GetPosts()
         {
             if (posts != null)
                 return posts;

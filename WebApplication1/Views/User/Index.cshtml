@@ -7,26 +7,26 @@
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
 <link rel="stylesheet" href="~/lib/bootstrap/dist/js/bootstrap.min.js" />
-<div class="container">
-    <h1>Hello!</h1>
+
+<div class="container-fluid">
+    <h1 class="text-center">Our users</h1>
 </div>
 
 <br />
 
-<div>
-    <table>
-        <tr>
-            <td>Name</td>
-            <td>Avatar</td>
-            <td>Email</td>
-        </tr>
-        @foreach(var item in Model)
-        {
-            <tr>
-                <td>@item.Name</td>
-                <td><img src="@item.Avatar"/></td>
-                <td>@item.Email</td>
-            </tr>
-        }
-    </table>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4"><mark>Avatar</mark></div>
+        <div class="col-md-4"><mark>Username</mark></div>
+        <div class="col-md-4"><mark>Email</mark></div>
+    </div>
+    @foreach (var user in Model)
+    {
+        <hr />
+        <div class="row">
+            <div class="col-md-4"><img src="@user.Avatar" /></div>
+            <div class="col-md-4"><p class="text-left">@Html.ActionLink(user.Name, "UserID", new { id = user.Id })</p></div>
+            <div class="col-md-4"><p class="text-left">@user.Email</p></div>
+        </div>
+    }
 </div>

@@ -1,0 +1,51 @@
+﻿@model WebApplication1.Models.User
+
+@{
+    ViewData["Title"] = "UserID";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-4" style="background-color: #ECEFF1 ; min-height: 666px">
+            <div class="row">
+                <br />
+                <div class="col-md-12"><img src="@Model.Avatar" style="height:auto; width: 100%" /></div>
+            </div>
+            <div class="row">
+                <br />
+                <div class="col-md-12" style="background-color: #CFD8DC; width: 100%; min-height: 278px">
+                    <div class="row">
+                        <pre style="width: 85%; margin-left: 8%; margin-top: 5%">@Model.Name</pre>
+                        <pre style="width: 85%; margin-left: 8%; margin-top: 5%">@Model.Email</pre>
+                        <pre style="width: 85%; margin-left: 8%; margin-top: 5%">Count of posts  : @Model.Posts.Count</pre>
+                        <pre style="width: 85%; margin-left: 8%; margin-top: 5%">Count of tasks  : @Model.Todos.Count</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7" style="background-color: #CFD8DC; min-height: 666px; margin-left: 2%">
+            <div class="row">
+                <h2 class="text-center"><mark>User posts</mark></h2>
+                @if (Model.Posts.Count != 0)
+                {
+                    foreach (var post in Model.Posts)
+                    {
+                        <pre style="width: 85%; margin-left: 8%; margin-top: 3%">@post.Title</pre>
+                    }
+                }
+                else
+                {
+                    <pre style="width: 85%; margin-left: 8%; margin-top: 3%">User has not added any posts</pre>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <p class="text-left"><a asp-action="Index">Back to List</a></p>
+    <p class="text-right">this page created at @Model.CreatedAt</p>
+</div>

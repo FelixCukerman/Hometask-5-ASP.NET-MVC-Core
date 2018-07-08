@@ -25,7 +25,7 @@ namespace WebApplication1.Services
                 throw new Exception("Bad request!");
             }
         }
-        public static List<Todo> GetTodos()
+        public List<Todo> GetTodos()
         {
             if (todos != null)
                 return todos;

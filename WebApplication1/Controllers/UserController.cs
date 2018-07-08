@@ -15,5 +15,10 @@ namespace WebApplication1.Controllers
             var items = userService.GetUsers();
             return View(items);
         }
+        public IActionResult UserID(int id)
+        {
+            var user = userService.GetUserById(id);
+            return View(user);
+        }
     }
 }
