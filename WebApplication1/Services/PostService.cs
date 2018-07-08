@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -48,6 +49,11 @@ namespace WebApplication1.Services
                 return posts;
             else
                 return new List<Post> { new Post { Id = -1, Body = "null", Likes = 0, Comments = null, CreatedAt = DateTime.MinValue, Title = "null", UserId = -1 } };
+        }
+
+        public Post GetPostById(int id)
+        {
+            return posts.Where(x => x.Id == id).FirstOrDefault();
         }
     }
 }

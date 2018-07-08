@@ -4,22 +4,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Our posts</h2>
-
-<div>
-    <table border="1">
-        <tr>
-            <td>Title</td>
-            <td>Likes</td>
-            <td>Created at</td>
-        </tr>
-        @foreach (var post in Model)
-        {
-            <tr>
-                <td>@post.Title</td>
-                <td>@post.Likes</td>
-                <td>@post.CreatedAt</td>
-            </tr>
-        }
-    </table>
+<h2 class="text-center">Our posts</h2>
+@foreach(var post in Model)
+{
+<div class="container-fluid">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7" style="background-color: #CFD8DC; min-height: 200px">
+            <br />
+            <h4 class="text-center" style="font-family: 'Century Gothic'">@Html.ActionLink(post.Title, "PostID", "Post", new { id = post.Id })</h4>
+            <br />
+            <pre>@post.Body ...</pre>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <br />
+            <div class="row">
+                <div class="col-md-2" style="min-height: 35px; border: 1px solid silver">@Html.ActionLink("Read more", "PostID", "Post", new { id = post.Id })</div>
+                <div class="col-md-5"></div>
+                <div class="col-md-2" style="min-height: 35px; font-size: 1.6em"><img src="~/images/comment.png"/>@post.Comments.Count</div>
+                <div class="col-md-2" style="min-height: 35px"><p class="text-center" style="font-size: 1.8em"><img src="~/images/like.png"/><small> @post.Likes</small></p></div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 </div>
+}

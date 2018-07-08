@@ -33,7 +33,7 @@
                 {
                     foreach (var post in Model.Posts)
                     {
-                        <pre style="width: 85%; margin-left: 8%; margin-top: 3%">@post.Title</pre>
+                <pre style="width: 85%; margin-left: 8%; margin-top: 3%">@Html.ActionLink(post.Title, "PostID", "Post", new { id = post.Id })</pre>
                     }
                 }
                 else

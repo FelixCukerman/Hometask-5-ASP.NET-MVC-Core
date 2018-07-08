@@ -19,5 +19,11 @@ namespace WebApplication1.Controllers
             var posts = postService.GetPosts();
             return View(posts);
         }
+
+        public IActionResult PostID(int id)
+        {
+            var posts = postService.GetPostById(id);
+            return View(posts);
+        }
     }
 }

@@ -1,0 +1,15 @@
+﻿@model WebApplication1.Models.Post
+
+@{
+    ViewData["Title"] = "PostID";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>"@Model.Title"</h2>
+
+<pre>@Model.Body</pre>
+
+<div>
+    <a asp-action="Index">All posts</a>
+    <p class="text-right">Created at @Model.CreatedAt</p>
+</div>
