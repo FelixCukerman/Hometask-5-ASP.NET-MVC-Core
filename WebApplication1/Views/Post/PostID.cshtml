@@ -4,12 +4,50 @@
     ViewData["Title"] = "PostID";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>"@Model.Title"</h2>
 
-<pre>@Model.Body</pre>
+<pre style="min-height: 666px">@Model.Body</pre>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-11">
+        <br />
+        <div class="row">
+            <div class="col-md-10"><p class="text-right" style="font-size: 1.5em; margin-top: 0.6%">Created at @Model.CreatedAt</p></div>
+            <div class="col-md-2" style="min-height: 35px"><p class="text-center" style="font-size: 1.8em"><img src="~/images/like.png" /><small> @Model.Likes</small></p></div>
+        </div>
+    </div>
+</div>
 
 <div>
     <a asp-action="Index">All posts</a>
-    <p class="text-right">Created at @Model.CreatedAt</p>
 </div>
+<button class="btn btn-link" data-toggle="collapse" data-target="#hide" style="background-color: lightslategrey; color: whitesmoke">Show comments</button>
+
+<div class="collapse" id="hide">
+    @if (Model.Comments.Count != 0)
+    {
+        @foreach (var comment in Model.Comments)
+        {
+            <br />
+            <div class="row">
+                <div class="col-md-8">
+                    <div style="min-height: 35px; border: 1px solid silver">@comment.Body</div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        }
+    }
+    else
+    {
+        <br />
+        <div class="row">
+            <div class="col-md-8">
+                <div style="min-height: 35px; border: 1px solid silver">Post is not commented</div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    }
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
