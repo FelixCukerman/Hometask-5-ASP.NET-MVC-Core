@@ -1,0 +1,36 @@
+﻿@model WebApplication1.Models.UserSelection
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<form class="form-group" method="post">
+    <input type="number" name="id" placeholder="user id" style="width:15%" />
+    <button type="submit">Submit</button>
+</form>
+
+@if (Model != null)
+{
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr class="active">
+            <th>User</th>
+            <th>Last post</th>
+            <th>Comment by last post</th>
+            <th>Unrealized task</th>
+            <th>Most commented post</th>
+            <th>Post by most like</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>@Html.ActionLink(Model.user.Name, "UserID", new { id = Model.user.Id })</td>
+        <td>@Html.ActionLink(Model.lastPost.Title, "PostID", "Post", new { id = Model.lastPost.Id })</td>
+        <td>@Model.commentByLastPost</td>
+        <td>@Model.unrealizedTask</td>
+        <td>@Html.ActionLink(Model.mostCommentedPost.Title, "PostID", "Post", new { id = Model.mostCommentedPost.Id })</td>
+        <td>@Html.ActionLink(Model.postByMostLike.Title, "PostID", "Post", new { id = Model.postByMostLike.Id })</td>
+    </tr>
+</table>
+}
